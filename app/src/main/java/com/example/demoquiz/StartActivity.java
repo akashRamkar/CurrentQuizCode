@@ -13,7 +13,7 @@ import android.widget.Toast;
 public class StartActivity extends AppCompatActivity implements View.OnClickListener{
 private  CheckBox checkBox1,checkBox2,checkBox3,checkBox4,checkBox5;
 private  Button playbutton;
-private static boolean isCheckBoxSelected=false;
+protected static boolean isCheckBoxSelected=false;
 private static String level;
     private static int userSelectedLevel;
     @Override
