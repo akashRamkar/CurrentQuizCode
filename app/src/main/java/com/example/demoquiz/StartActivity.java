@@ -33,7 +33,36 @@ private static String level;
         checkBox5.setOnClickListener(StartActivity.this);
 
     }
-
+    //checkbox reference no is checkbox no;
+    private void onlyEnableThisCheckBox(int checkBoxReference_no){
+        checkBox1.setEnabled(false);
+        checkBox2.setEnabled(false);
+        checkBox3.setEnabled(false);
+        checkBox4.setEnabled(false);
+        checkBox5.setEnabled(false);
+        switch (checkBoxReference_no){
+            case 1:{
+                checkBox1.setEnabled(true);
+                break;
+            }
+            case 2:{
+                checkBox2.setEnabled(true);
+                break;
+            }
+            case 3:{
+                checkBox3.setEnabled(true);
+                break;
+            }
+            case 4:{
+                checkBox4.setEnabled(true);
+                break;
+            }
+            default:{
+                checkBox5.setEnabled(true);
+                break;
+            }
+        }
+    }
 
 
 private void setCheckBoxToDefaults(){
@@ -79,10 +108,8 @@ private void showWarningToast(){
                 if(checkBox1.isChecked()) {
                     isCheckBoxSelected=true;
                     checkBox1.setTextColor(Color.GREEN);
-                    checkBox2.setEnabled(false);
-                    checkBox3.setEnabled(false);
-                    checkBox4.setEnabled(false);
-                    checkBox5.setEnabled(false);
+
+                    onlyEnableThisCheckBox(1);
                 level="1";
                 }else{
                     isCheckBoxSelected=false;
@@ -96,10 +123,8 @@ private void showWarningToast(){
                 if(checkBox2.isChecked()) {
                     isCheckBoxSelected=true;
                     checkBox2.setTextColor(Color.GREEN);
-                    checkBox1.setEnabled(false);
-                    checkBox3.setEnabled(false);
-                    checkBox4.setEnabled(false);
-                    checkBox5.setEnabled(false);
+
+                    onlyEnableThisCheckBox(2);
                     level = "2";
                 }else{
                     isCheckBoxSelected=false;
@@ -112,10 +137,8 @@ private void showWarningToast(){
                 if(checkBox3.isChecked()) {
                     isCheckBoxSelected=true;
                     checkBox3.setTextColor(Color.GREEN);
-                    checkBox2.setEnabled(false);
-                    checkBox1.setEnabled(false);
-                    checkBox4.setEnabled(false);
-                    checkBox5.setEnabled(false);
+
+                    onlyEnableThisCheckBox(3);
 
                     level = "3";
                 }else{
@@ -129,10 +152,8 @@ private void showWarningToast(){
                 if(checkBox4.isChecked()) {
                     isCheckBoxSelected=true;
                     checkBox4.setTextColor(Color.GREEN);
-                    checkBox2.setEnabled(false);
-                    checkBox3.setEnabled(false);
-                    checkBox1.setEnabled(false);
-                    checkBox5.setEnabled(false);
+
+                    onlyEnableThisCheckBox(4);
                     level = "4";
                 }else{
                     isCheckBoxSelected=false;
@@ -144,10 +165,8 @@ private void showWarningToast(){
                 if(checkBox5.isChecked()) {
                     isCheckBoxSelected=true;
                     checkBox5.setTextColor(Color.GREEN);
-                    checkBox2.setEnabled(false);
-                    checkBox3.setEnabled(false);
-                    checkBox4.setEnabled(false);
-                    checkBox1.setEnabled(false);
+
+                    onlyEnableThisCheckBox(5);
                 level="5";
                 }else{
                     isCheckBoxSelected=false;
