@@ -27,6 +27,7 @@ private static int userScore;
 
     }
     public void onExitBackTOStartActivity(View view){
+        MainActivity.counter=0;
         Intent intent=new Intent(ScoreActivity.this,StartActivity.class);
         startActivity(intent);
         finish();

@@ -20,12 +20,12 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    private TextView Quiz, countDownTime;
+    private TextView Quiz, countDownTime,quizcount;
     private Button option1, option2, option3, option4;
     private  ProgressBar loader;
     private OkHttpClient client;
     private Request request;
-    private static int counter=0;
+    public static int counter=0;
     private static String quest, optionA, optionB, optionC, optionD, ans;
     private static int seconds;
     private static CountDownTimer timer;
@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         option3 = findViewById(R.id.opt3);
         option4 = findViewById(R.id.opt4);
         Quiz = findViewById(R.id.quiz);
+        quizcount=findViewById(R.id.question_counter);
         countDownTime = findViewById(R.id.countTime);
         loader = findViewById(R.id.loader);
         setButtonsOnClickListener();
@@ -173,7 +174,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 optionC = jsonObject.getString("c");
                                 optionD = jsonObject.getString("d");
                             ans=jsonObject.getString("answer");
-
+                                //setting question no.on screen
+                                quizcount.setText(String.format("Quiz :%02d/10",counter));
                                 Quiz.setText(quest);
                                 option1.setText("A: " + optionA);
                                 option2.setText("B: " + optionB);
