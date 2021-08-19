@@ -15,7 +15,7 @@ private  CheckBox checkBox1,checkBox2,checkBox3,checkBox4,checkBox5;
 private  Button playbutton;
 protected static boolean isCheckBoxSelected=false;
 private static String level;
-    private static int userSelectedLevel;
+private static int userSelectedLevel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
