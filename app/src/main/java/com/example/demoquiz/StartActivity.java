@@ -1,0 +1,161 @@
+//package com.example.kbcquiz;
+package com.example.demoquiz;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.Toast;
+
+public class StartActivity extends AppCompatActivity implements View.OnClickListener{
+private  CheckBox checkBox1,checkBox2,checkBox3,checkBox4,checkBox5;
+private  Button playbutton;
+private static boolean isCheckBoxSelected=false;
+private static String level;
+    private static int userSelectedLevel;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_start);
+        checkBox1=findViewById(R.id.checkBox_1);
+        checkBox2=findViewById(R.id.checkBox_2);
+        checkBox3=findViewById(R.id.checkBox_3);
+        checkBox4=findViewById(R.id.checkBox_4);
+        checkBox5=findViewById(R.id.checkBox_5);
+        playbutton=findViewById(R.id.play_Button);
+        checkBox1.setOnClickListener(StartActivity.this);
+        checkBox2.setOnClickListener(StartActivity.this);
+        checkBox3.setOnClickListener(StartActivity.this);
+        checkBox4.setOnClickListener(StartActivity.this);
+        checkBox5.setOnClickListener(StartActivity.this);
+
+    }
+
+
+
+private void setCheckBoxToDefaults(){
+        checkBox1.setEnabled(true);
+        checkBox2.setEnabled(true);
+        checkBox3.setEnabled(true);
+        checkBox4.setEnabled(true);
+        checkBox5.setEnabled(true);
+}
+private void showWarningToast(){
+        StartActivity.this.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(StartActivity.this,"please select something",Toast.LENGTH_SHORT).show();
+            }
+        });
+}
+
+    @Override
+    public void onClick(View view) {
+        if(view==(playbutton)){
+
+        }
+        else{
+//            isCheckboxSelected=true;
+
+        }
+        switch (view.getId()){
+            case R.id.play_Button:{
+                if(isCheckBoxSelected){
+                Intent intent = new Intent(StartActivity.this, MainActivity.class);
+                intent.putExtra("level",level);
+                startActivity(intent);
+//            finishAfterTransition();
+                finish();
+                }else{
+                    showWarningToast();
+                }
+                break;
+            }
+            case R.id.checkBox_1:{
+
+                if(checkBox1.isChecked()) {
+                    isCheckBoxSelected=true;
+                    checkBox1.setTextColor(Color.GREEN);
+                    checkBox2.setEnabled(false);
+                    checkBox3.setEnabled(false);
+                    checkBox4.setEnabled(false);
+                    checkBox5.setEnabled(false);
+                level="1";
+                }else{
+                    isCheckBoxSelected=false;
+                    checkBox1.setTextColor(Color.WHITE);
+                    setCheckBoxToDefaults();
+                }
+
+                break;
+            }
+            case R.id.checkBox_2:{
+                if(checkBox2.isChecked()) {
+                    isCheckBoxSelected=true;
+                    checkBox2.setTextColor(Color.GREEN);
+                    checkBox1.setEnabled(false);
+                    checkBox3.setEnabled(false);
+                    checkBox4.setEnabled(false);
+                    checkBox5.setEnabled(false);
+                    level = "2";
+                }else{
+                    isCheckBoxSelected=false;
+                    checkBox2.setTextColor(Color.WHITE);
+                    setCheckBoxToDefaults();
+                }
+                break;
+            }
+            case R.id.checkBox_3:{
+                if(checkBox3.isChecked()) {
+                    isCheckBoxSelected=true;
+                    checkBox3.setTextColor(Color.GREEN);
+                    checkBox2.setEnabled(false);
+                    checkBox1.setEnabled(false);
+                    checkBox4.setEnabled(false);
+                    checkBox5.setEnabled(false);
+
+                    level = "3";
+                }else{
+                    isCheckBoxSelected=false;
+                    checkBox3.setTextColor(Color.WHITE);
+                    setCheckBoxToDefaults();
+                }
+                break;
+            }
+            case R.id.checkBox_4:{
+                if(checkBox4.isChecked()) {
+                    isCheckBoxSelected=true;
+                    checkBox4.setTextColor(Color.GREEN);
+                    checkBox2.setEnabled(false);
+                    checkBox3.setEnabled(false);
+                    checkBox1.setEnabled(false);
+                    checkBox5.setEnabled(false);
+                    level = "4";
+                }else{
+                    isCheckBoxSelected=false;
+                    checkBox4.setTextColor(Color.WHITE);
+                    setCheckBoxToDefaults();
+                }
+                break;
+            } default:{
+                if(checkBox5.isChecked()) {
+                    isCheckBoxSelected=true;
+                    checkBox5.setTextColor(Color.GREEN);
+                    checkBox2.setEnabled(false);
+                    checkBox3.setEnabled(false);
+                    checkBox4.setEnabled(false);
+                    checkBox1.setEnabled(false);
+                level="5";
+                }else{
+                    isCheckBoxSelected=false;
+                    checkBox5.setTextColor(Color.WHITE);
+                    setCheckBoxToDefaults();
+                }
+                break;
+            }
+        }
+    }
+}
