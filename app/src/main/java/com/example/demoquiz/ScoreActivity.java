@@ -28,6 +28,7 @@ private static int userScore;
     }
     public void onExitBackTOStartActivity(View view){
         MainActivity.counter=0;
+        MainActivity.score=0;
         StartActivity.isCheckBoxSelected=false;
         Intent intent=new Intent(ScoreActivity.this,StartActivity.class);
         startActivity(intent);

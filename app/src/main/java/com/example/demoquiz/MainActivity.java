@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static String quest, optionA, optionB, optionC, optionD, ans;
     private static int seconds;
     private static CountDownTimer timer;
-    private static int score;
+    public static int score;
     private static String inputlevel;
     private static boolean isButtonSelected=false;
     private final int COUNTDOWN_DURATION_INMILLIES = 31000;//31 seconds havin 1 seconds buffer
@@ -54,6 +54,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        countDownTime.setText(duration);
 //        updateTimeValue();
     }
+    private void showCorrectAnswerToUser(String answer){
+        switch (answer){
+            case "a":{
+                option1.setTextColor(Color.GREEN);
+                break;
+            }
+            case "b":{
+                option2.setTextColor(Color.GREEN);
+                break;
+            }
+            case "c":{
+                option3.setTextColor(Color.GREEN);
+                break;
+            }
+            case "d":{
+                option4.setTextColor(Color.GREEN);
+                break;
+            }
+
+        }
+
+    }
     private void setButtonsOnClickListener(){
         option1.setOnClickListener(MainActivity.this);
         option2.setOnClickListener(MainActivity.this);
@@ -74,6 +96,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                    option1.setTextColor(Color.GREEN);
                        score++;
                        showThisToastOnMainUI("a");
+                   }else{
+                       showCorrectAnswerToUser(ans);
                    }
                }
                break;
@@ -87,6 +111,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                        option2.setTextColor(Color.GREEN);
                        score++;
                        showThisToastOnMainUI("b");
+                   }else{
+                       showCorrectAnswerToUser(ans);
                    }
                }
                break;
@@ -100,6 +126,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                        option3.setTextColor(Color.GREEN);
                        score++;
                        showThisToastOnMainUI("c");
+                   }else{
+                       showCorrectAnswerToUser(ans);
                    }
                }
                break;
@@ -113,6 +141,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                        option4.setTextColor(Color.GREEN);
                        score++;
                        showThisToastOnMainUI("d");
+                   }else{
+                       showCorrectAnswerToUser(ans);
                    }
                }
                break;
