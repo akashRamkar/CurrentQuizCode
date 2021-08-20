@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -15,6 +16,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -85,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 // this method can handle all the clicks on the buttons that were clicked
     @Override
     public void onClick(View selectedButton) {
-                   timer.cancel();
+                   timer.cancel(); //this stops the timer on current time
        switch (selectedButton.getId()){
            case (R.id.opt1):{
                if(!isButtonSelected) {
@@ -249,8 +252,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onFinish() {
+
                 countDownTime.setVisibility(View.GONE);
-            }
+                showCorrectAnswerToUser(ans);
+                isButtonSelected=true;
+                showThisToastOnMainUI("Times Up");
+
+
+}
+
+
         }.start(); //starting of counter
     }
 
