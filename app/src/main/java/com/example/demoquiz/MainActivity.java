@@ -198,10 +198,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         @Override
                         public void run() {
                             try {
-                                Toast.makeText(MainActivity.this,quizUrl,Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(MainActivity.this,quizUrl,Toast.LENGTH_SHORT).show();
                                 JSONObject jsonObject = new JSONObject(responseData);
                                 quest = jsonObject.getString("question");
-                                System.out.println(quest);
+//                                System.out.println(quest);
                                 optionA = jsonObject.getString("a");
                                 optionB = jsonObject.getString("b");
                                 optionC = jsonObject.getString("c");
@@ -216,7 +216,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 option4.setText("D: " + optionD);
 //                            answer.setText("answer is : "+ans);
 //                                System.out.println("Answer is :"+ans);
-                                    showThisToastOnMainUI("Ans is :"+ans);
+//                                    showThisToastOnMainUI("Ans is :"+ans);
 
                                 loader.setVisibility(View.GONE);
 //                                updateTimeValue();
